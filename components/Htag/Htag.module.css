@@ -1,0 +1,33 @@
+
+.h1 {
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 36px;
+  margin: 0; /* убрать дефолтные браузерные марджины  */ 
+}
+
+.h2 {
+  font-size: 45px;
+  line-height: 45px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.h3 {
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.black {
+  color: var(--black);
+}
+
+.primary {
+  color: var(--title-blue);
+}
+
+.white {
+  color: var(--white)
+}

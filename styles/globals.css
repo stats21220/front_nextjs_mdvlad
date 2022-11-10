@@ -1,0 +1,50 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	color: var(--grey);
+	background: var(--white);
+	font-family: var(--font-family);
+}
+
+a {
+	text-decoration: none;
+
+	color: inherit;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+}
+
+:root {
+	--primary: #337ab7;
+	--primary-hover: #095191;
+	--primary-hover-border: #063c6b;
+	--black: #302121;
+	--white: #fff;
+	--red: #c32727;
+	--green: #31bd00;
+	--green-hover: #319f09;
+	--grey: #666;
+	--orange: #ffad1c;
+	--orange-hover: #dc9419;
+	--orange-light: #face7e;
+	--cream: #fefaf2;
+	--orange-border: #bb9a5e;
+	--blue-border: #255680;
+	--search: #fde7c1;
+	--aliceblue: aliceblue;
+	--title-blue: #0075bd;
+	--title-black: #242424;
+	--text: #666;
+	--price: #244a5d;
+	--discount-price: #39a24b;
+	--font-family: "Noto Sans", sans-serif;
+}
