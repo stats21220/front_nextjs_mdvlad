@@ -2,18 +2,20 @@ import React from "react";
 import { 
   Button,
   Htag, 
-  Ptag
+  Ptag,
+  Tag
 } from "../components/index";
 
 export default function Home() {
   return (
     <>
-      <Htag tag='h1' color="black">Пиломатериалы во Владимире – ТК «Мир Дерева»</Htag>
-      <Htag tag='h1' color="primary">Пиломатериалы во Владимире – ТК «Мир Дерева»</Htag>
-      <Htag tag='h2' color="black">Пиломатериалы во Владимире</Htag>
+      <Htag tag='h1' weight={900} color="black">Пиломатериалы во Владимире – ТК «Мир Дерева»</Htag>
+      <Htag tag='h1' weight={500} color="primary">Пиломатериалы во Владимире – ТК «Мир Дерева»</Htag>
+      <Htag tag='h2' weight={700} color="black">Пиломатериалы во Владимире</Htag>
       <Htag tag='h2' color="primary">Пиломатериалы во Владимире</Htag>
-      <Htag tag='h3' color="black">Разновидности</Htag>
+      <Htag tag='h3' weight={900} color="black">Разновидности</Htag>
       <Htag tag='h3' color="primary">Разновидности</Htag>
+      <Tag href="https://yandex.ru" tabIndex={0}>yandex</Tag><Tag href="https://google.com" tabIndex={0}>google</Tag>
       <Button appearance="orange">ПОДПИСАТЬСЯ</Button>
       <Ptag size="s" color="black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro ut impedit est error et suscipit, totam ratione commodi quidem iste facilis quam nulla iure recusandae delectus at? Non, at?</Ptag>
       <Button appearance="primary">В корзину</Button>

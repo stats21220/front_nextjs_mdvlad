@@ -9,6 +9,10 @@
   color: var(--white);
   transition: all 0.2s;
   border-radius: 5px;
+  padding: 10px auto;
+}
+.button:focus {
+  outline: 3px solid var(--primary-hover-border);
 }
 
 .green {

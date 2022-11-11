@@ -9,15 +9,25 @@
 .h2 {
   font-size: 45px;
   line-height: 45px;
-  font-weight: 900;
   margin: 0;
 }
 
 .h3 {
   font-size: 30px;
   line-height: 30px;
-  font-weight: 500;
   margin: 0;
+}
+
+.s {
+  font-weight: 500;
+}
+
+.m {
+  font-weight: 700;
+}
+
+.l {
+  font-weight: 900;
 }
 
 .black {
