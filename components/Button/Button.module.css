@@ -15,12 +15,14 @@
   outline: 3px solid var(--primary-hover-border);
 }
 
-.green {
-  background: var(--green);
+.arrow {
+  display: inline-block;
+  margin-left: 10px;
 }
 
-.green:hover {
-  background: var(--green-hover);
+.down {
+  transform: rotate(90deg);
+  transition: all 0.2s;
 }
 
 /* .focus:focus { */
@@ -42,6 +44,10 @@
   background: var(--primary-hover);
 }
 
+.primary svg {
+  fill: var(--white)
+}
+
 .orange {
   background: var(--orange);
   color: var(--black);
@@ -49,4 +55,20 @@
 
 .orange:hover {
   background: var(--orange-hover);
+}
+
+.orange svg {
+  fill: var(--black);
+}
+
+.green {
+  background: var(--green);
+}
+
+.green:hover {
+  background: var(--green-hover);
+}
+
+.green svg {
+  fill: var(--white);
 }
