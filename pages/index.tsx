@@ -6,13 +6,13 @@ import {
   Tag,
   Rating
 } from "../components/index";
-import { Layout } from "../layout/Layout";
+import { withLayout } from "../layout/Layout";
 
-export default function Home() {
+function Home() {
   const [rating, setRating] = useState<number>(4);
 
   return (
-    <Layout>
+    <>
       <Htag tag='h1' weight={900} color="black">Пиломатериалы во Владимире – ТК «Мир Дерева»</Htag>
       <Htag tag='h1' weight={500} color="primary">Пиломатериалы во Владимире – ТК «Мир Дерева»</Htag>
       <Htag tag='h2' weight={700} color="black">Пиломатериалы во Владимире</Htag>
@@ -28,6 +28,8 @@ export default function Home() {
       <Ptag size="l" color="black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit illo quibusdam doloremque sint harum cum omnis optio libero dolores labore porro, adipisci repellendus iure beatae neque earum eveniet, commodi dolor.</Ptag>
       <Rating rating={rating} isEditable={true} setRating={setRating}/>
       <Rating rating={3}/>
-    </Layout>
+    </>
   );
 }
+
+export default withLayout(Home);
