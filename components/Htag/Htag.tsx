@@ -31,6 +31,15 @@ export const Htag = ({tag, color, weight = 500, children, className, ...props}: 
         [styles.m]: weight === 700,
         [styles.l]: weight === 900
       })}{...props}>{children}</h3>;
+      case 'h4':
+        return <h4 className={cn(styles.h4, className, {
+          [styles.black]: color === 'black',
+          [styles.white]: color === 'white',
+          [styles.primary]: color === 'primary',
+          [styles.s]: weight === 500,
+          [styles.m]: weight === 700,
+          [styles.l]: weight === 900
+        })}{...props}>{children}</h4>;
     default:
       return <></>;
   }
