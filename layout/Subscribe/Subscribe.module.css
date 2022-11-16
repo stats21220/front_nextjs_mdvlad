@@ -1,12 +1,76 @@
 
 .subscribe {
   background: var(--primary);
+  border-radius: 10px;
+  cursor: default;
 }
-
 
 .wrapper {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr  auto auto auto 1fr;
+  grid-template-areas: 
+    ". title form descr ."
+  ;
   justify-content: center;
   align-items: center;
+  gap: 30px;
+  height: 55px;
+}
+
+.title {
+  grid-area: title;
+}
+
+.form {
+  grid-area: form;
+  display: flex;
+  justify-content: space-between;
+  width: 430px;
+  gap: 10px;
+}
+
+
+.descr {
+  grid-area: descr;
+  white-space: nowrap;
+}
+
+.input {
+  width: 300px;
+}
+
+@media(max-width: 900px) {
+  .wrapper {
+    gap: 10px;
+    height: 70px;
+  }
+}
+
+@media(max-width: 760px) {
+  
+  .wrapper {
+    grid-template-columns: 1fr  auto 1fr;
+    grid-template-areas: 
+    ". title ."
+    ". form ."
+    ". descr ."
+    ;
+    height: auto;
+    padding: 20px;
+    justify-items: center;
+  }
+  
+  .form {
+    width: 300px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .descr {
+
+  }
 }

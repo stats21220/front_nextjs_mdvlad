@@ -1,18 +1,19 @@
 import { ISubscribeProps } from "./Subscribe.props";
 import styles from './Subscribe.module.css';
 import cn from 'classnames';
-import { Htag } from "../../components";
-import { Button } from "../../components";
+import { Htag, Input, Button, Ptag } from "../../components";
 
 export const Subscribe = ({className, ...props}: ISubscribeProps) => {
   return (
     <div className={cn(styles.subscribe, className)} {...props}>
       <div className={styles.wrapper}>
-        <Htag tag="h4" color="white" >ПОДПИШИСЬ НА РАССЫЛКУ НАШИХ АКЦИЙ И НОВОСТЕЙ</Htag>
-        <form action="">
-          <input type="text" />
-          <Button appearance="orange">ПОДПИСАТЬСЯ</Button>
+        <Htag className={styles.title} tag="h4" color="white" >ПОДПИШИСЬ НА РАССЫЛКУ НАШИХ АКЦИЙ И НОВОСТЕЙ</Htag>
+        <form action="" className={styles.form}>
+          <Input className={styles.input}/>
+          <Button appearance="orange" className={styles.button}>ПОДПИСАТЬСЯ</Button>
         </form>
+        <Ptag size="s" color="white" className={styles.descr}>Нажимая на кнопку, вы даете согласие на <br/>
+         <a href="#"><span>обработку ваших персональных данных</span></a></Ptag>
       </div>
     </div>
   );

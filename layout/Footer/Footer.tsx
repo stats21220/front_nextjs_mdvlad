@@ -1,7 +1,9 @@
 import { IFooterProps } from "./Footer.props";
 import styles from './Footer.module.css';
 import cn from 'classnames';
+import {format} from 'date-fns';
 import { Htag } from "../../components";
+import { Ptag } from "../../components";
 import IPhone from './phone.svg';
 import IClock from './clock.svg';
 import IMail from './mail.svg';
@@ -12,8 +14,7 @@ import IYoutube from './youtube.svg';
 export const Footer = ({className,...props}: IFooterProps) => {
   return (
     <footer className={cn(styles.footer, className)} {...props}>
-      <div className={styles.wrapper}>
-        <div>
+        <div className={cn(styles.wrapper, styles.list_1)}>
           <Htag className={styles.title} tag="h4" color="black" >О КОМПАНИИ</Htag>
           <ul className={styles.list}>
             <li className={styles.listItem}><a href="#">О магазине</a></li>
@@ -25,7 +26,7 @@ export const Footer = ({className,...props}: IFooterProps) => {
             <li className={styles.listItem}><a href="#">Программа лояльности</a></li>
           </ul>
         </div>
-        <div>
+        <div className={cn(styles.wrapper, styles.list_2)}>
           <Htag className={styles.title} tag="h4" color="black" >КАТАЛОГ</Htag>
           <ul className={styles.list}>
             <li className={styles.listItem}><a href="#">Пиломатериалы</a></li>
@@ -35,21 +36,21 @@ export const Footer = ({className,...props}: IFooterProps) => {
             <li className={styles.listItem}><a href="#">Дверные и окнные блоки</a></li>
             <li className={styles.listItem}><a href="#">Лакокрасочные материалы</a></li>
             <li className={styles.listItem}><a href="#">Назначение</a></li>
-            <li className={styles.listItem}><a href="#">РАСПРОДАЖА</a></li>
+            <li className={styles.listItem}><a className={styles.sale} href="#">РАСПРОДАЖА</a></li>
           </ul>
         </div>
-        <div>
+        <div className={cn(styles.wrapper, styles.list_3)}>
           <Htag className={styles.title} tag="h4" color="black" >КОНТАКТЫ</Htag>
           <ul className={styles.list}>
             <li className={styles.listItem}>
-              <a href="tel:8 (4922) 22-21-02">
-                <IPhone/>8 (4922) 22-21-02
+              <a className={styles.phone} href="tel:8 (4922) 22-21-02">
+                <IPhone/><span>8 (4922) 22-21-02</span>
               </a></li>
             <li className={styles.listItem}>
-              <a href="#" className={styles.time}>
+              <span className={styles.time}>
                 <IClock/>
                 <span>Пн. - Сб.: c 8:00 до 18:00<br/>Вс.: c 8:00 до 15:00</span>
-              </a>
+              </span>
             </li>
             <li className={styles.listItem}>
               <a href="mailto:info@mdvlad.ru" className={styles.mail}>
@@ -67,20 +68,20 @@ export const Footer = ({className,...props}: IFooterProps) => {
             </li>
           </ul>
         </div>
-        <div className={styles.map}></div>
+        <div className={styles.map}>Карта яндекс</div>
         <div className={styles.footer_bottom}>
-            <div className={styles.footer_bottom_div}>
+            <div className={styles.footer_bottom_element}>
               <div>
-                <a href="#" className={styles.footer_bottom_link}><span>Политика конфиденциальность</span></a>
+                <a href="#" className={styles.footer_bottom_link} target="_blank"><span>Политика конфиденциальность</span></a>
                 <a href="#" className={styles.footer_bottom_link}><span>Карта сайта</span></a>
               </div>
             </div>
-            <div className={styles.footer_bottom_div}>
+            <div className={styles.footer_bottom_element}>
                 <div>
-                  <p>© 2012 - 2022 ТД Мир Дерева Владимир<br/>
-                      Публикация информации с сайта mdvlad.ru без разрешения запрещена.<br/>
+                  <Ptag size="s" color="black">© 2012 - {format(new Date(), 'yyyy')} ТД Мир Дерева Владимир<br/>
+                      Публикация информации с сайта mdvlad.ru без разрешения запрещена. <br/>
                       Информация на сайте mdvlad.ru не является публичной офертой.
-                  </p>
+                  </Ptag>
                 </div>
                 <div className={styles.icon}>
                   <IVk/>
@@ -88,7 +89,6 @@ export const Footer = ({className,...props}: IFooterProps) => {
                 </div>
             </div>
         </div>
-      </div>
     </footer>
   );
 };

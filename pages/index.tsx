@@ -24,7 +24,7 @@ function Home() {
       <Ptag size="s" color="black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro ut impedit est error et suscipit, totam ratione commodi quidem iste facilis quam nulla iure recusandae delectus at? Non, at?</Ptag>
       <Button appearance="primary" arrow="down">В корзину</Button>
       <Ptag size="m" color="black">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet reiciendis, accusamus nemo consectetur iusto pariatur dolor itaque maiores earum voluptas cupiditate molestiae atque nobis non, sed accusantium a fugiat possimus?</Ptag>
-      <Button appearance="green">Купить в 1 клик</Button>
+      <Button appearance="primary">Купить в 1 клик</Button>
       <Ptag size="l" color="black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit illo quibusdam doloremque sint harum cum omnis optio libero dolores labore porro, adipisci repellendus iure beatae neque earum eveniet, commodi dolor.</Ptag>
       <Rating rating={rating} isEditable={true} setRating={setRating}/>
       <Rating rating={3}/>
