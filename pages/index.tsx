@@ -1,14 +1,18 @@
+import { GetStaticProps } from "next";
 import React, { useState } from "react";
 import { 
   Button,
   Htag, 
   Ptag,
   Tag,
-  Rating
+  Rating,
+  Catalog
 } from "../components/index";
 import { withLayout } from "../layout/Layout";
+import axios from "axios";
+import { ICatalogItem } from "../interfaces/catalog.interface";
 
-function Home() {
+function Home({ catalog }: HomeProps) {
   const [rating, setRating] = useState<number>(4);
 
   return (
@@ -28,8 +32,24 @@ function Home() {
       <Ptag size="l" color="black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit illo quibusdam doloremque sint harum cum omnis optio libero dolores labore porro, adipisci repellendus iure beatae neque earum eveniet, commodi dolor.</Ptag>
       <Rating rating={rating} isEditable={true} setRating={setRating}/>
       <Rating rating={3}/>
+      <div>
+        <Catalog catalog={catalog}></Catalog>
+      </div>
     </>
   );
 }
 
 export default withLayout(Home);
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const {data: catalog} = await axios.get<ICatalogItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/page');
+  return {
+    props: {
+      catalog
+    }
+  };
+};
+
+interface HomeProps {
+  catalog: ICatalogItem[]
+}

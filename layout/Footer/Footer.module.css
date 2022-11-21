@@ -136,6 +136,9 @@
       ". footer_bottom footer_bottom ."
     ;
   }
+  .listItem a {
+    font-size: 18px;
+  }
 }
 
 @media(max-width: 630px) {
@@ -166,5 +169,29 @@
       ". footer_bottom ."
     ;
     justify-items: center;
+    text-align: center;
+  }
+  .listItem a {
+    font-size: 25px;
+  }
+
+  .phone {
+    justify-content: center;
+  }
+
+  .time {
+    justify-content: center;
+  }
+
+  .mail {
+    justify-content: center;
+  }
+
+  .address {
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 30px;
   }
 }
