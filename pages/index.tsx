@@ -5,14 +5,13 @@ import {
   Htag, 
   Ptag,
   Tag,
-  Rating,
-  Catalog
+  Rating
 } from "../components/index";
 import { withLayout } from "../layout/Layout";
 import axios from "axios";
 import { ICatalogItem } from "../interfaces/catalog.interface";
 
-function Home({ catalog }: HomeProps) {
+function Home({ catalog }: IHomeProps) {
   const [rating, setRating] = useState<number>(4);
 
   return (
@@ -32,24 +31,24 @@ function Home({ catalog }: HomeProps) {
       <Ptag size="l" color="black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit illo quibusdam doloremque sint harum cum omnis optio libero dolores labore porro, adipisci repellendus iure beatae neque earum eveniet, commodi dolor.</Ptag>
       <Rating rating={rating} isEditable={true} setRating={setRating}/>
       <Rating rating={3}/>
-      <div>
-        <Catalog catalog={catalog}></Catalog>
-      </div>
     </>
   );
 }
 
 export default withLayout(Home);
 
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
   const {data: catalog} = await axios.get<ICatalogItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/page');
+  const firstCategory = 0;
   return {
     props: {
-      catalog
+      catalog,
+      firstCategory
     }
   };
 };
 
-interface HomeProps {
-  catalog: ICatalogItem[]
+interface IHomeProps extends Record<string, unknown> {
+  catalog: ICatalogItem[];
+  firstCategory: number;
 }
