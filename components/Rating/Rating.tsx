@@ -10,12 +10,12 @@ export const Rating = ({isEditable = false, rating = 0, setRating, ...props}: IR
   const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
   useEffect(() => {
-    constructRating(rating)
-  },[rating])
+    constructRating(rating);
+  },[rating]);
 
 
   const constructRating = (currentRating: number) => {
-    const updatedArray = ratingArray.map((r: JSX.Element, i: Number) => {
+    const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
       return (
         <span
         className={cn(styles.star, {
@@ -53,9 +53,9 @@ export const Rating = ({isEditable = false, rating = 0, setRating, ...props}: IR
   const handleSpace = (i: number, e: KeyboardEvent<SVGElement>) => {
     if (e.code != 'Space' || !setRating) {
       return;
-    };
+    }
     setRating(i);
-  }
+  };
 
   return (
     <div {...props}>

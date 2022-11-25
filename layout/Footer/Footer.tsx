@@ -68,7 +68,7 @@ export const Footer = ({className,...props}: IFooterProps) => {
             </li>
           </ul>
         </div>
-        <div className={styles.map}>Карта яндекс</div>
+        <div className={styles.map}><iframe src="https://yandex.ru/map-widget/v1/?z=17&ol=biz&oid=1288897412" width="100%" height="100%" frameBorder="0"></iframe></div>
         <div className={styles.footer_bottom}>
             <div className={styles.footer_bottom_element}>
               <div>

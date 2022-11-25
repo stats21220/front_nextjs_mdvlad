@@ -1,25 +1,26 @@
 .tag {
-  display: inline-block;
+	display: inline-block;
 
-  box-sizing: border-box;
+	box-sizing: border-box;
 
-  margin-right: 5px;
+	margin-right: 5px;
+	padding: 5px 10px;
 
-  border-radius: 20px;
-  padding: 5px 10px;
-  border: 1px solid var(--primary);
+	border: 1px solid var(--primary);
+
+	border-radius: 20px;
 }
 
 .tag:focus {
-  outline: 1px solid var(--primary-hover-border);
+	outline: 1px solid var(--primary-hover-border);
 }
 
 .m {
-  font-size: 12px;
-  line-height: 12px;
+	font-size: 12px;
+	line-height: 12px;
 }
 
 .cream {
-  color: var(--black);
-  background: var(--cream);
+	color: var(--black);
+	background: var(--cream);
 }

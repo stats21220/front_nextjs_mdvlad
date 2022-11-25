@@ -9,7 +9,7 @@ import {
 } from "../components/index";
 import { withLayout } from "../layout/Layout";
 import axios from "axios";
-import { ICatalogItem } from "../interfaces/catalog.interface";
+import { IMenuItem } from "../interfaces/menu.interface";
 
 function Home({ catalog }: IHomeProps) {
   const [rating, setRating] = useState<number>(4);
@@ -38,7 +38,7 @@ function Home({ catalog }: IHomeProps) {
 export default withLayout(Home);
 
 export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
-  const {data: catalog} = await axios.get<ICatalogItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/page');
+  const {data: catalog} = await axios.get<IMenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/page');
   const firstCategory = 0;
   return {
     props: {
@@ -49,6 +49,6 @@ export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
 };
 
 interface IHomeProps extends Record<string, unknown> {
-  catalog: ICatalogItem[];
+  catalog: IMenuItem[];
   firstCategory: number;
 }

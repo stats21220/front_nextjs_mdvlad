@@ -2,8 +2,10 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+
 	color: var(--grey);
 	background: var(--white);
+
 	font-family: var(--font-family);
 }
 
@@ -24,27 +26,27 @@ a {
 }
 
 :root {
-	--primary: #337ab7;
+	--primary: #337AB7;
 	--primary-hover: #095191;
-	--primary-hover-border: #063c6b;
+	--primary-hover-border: #063C6B;
 	--black: #302121;
-	--white: #fff;
-	--red: #c32727;
-	--green: #31bd00;
-	--green-hover: #319f09;
+	--white: #FFF;
+	--red: #C32727;
+	--green: #31BD00;
+	--green-hover: #319F09;
 	--grey: #666;
-	--orange: #ffad1c;
-	--orange-hover: #dc9419;
-	--orange-light: #face7e;
-	--cream: #fefaf2;
-	--orange-border: #bb9a5e;
+	--orange: #FFAD1C;
+	--orange-hover: #DC9419;
+	--orange-light: #FACE7E;
+	--cream: #FEFAF2;
+	--orange-border: #BB9A5E;
 	--blue-border: #255680;
-	--search: #fde7c1;
+	--search: #FDE7C1;
 	--aliceblue: aliceblue;
-	--title-blue: #0075bd;
+	--title-blue: #0075BD;
 	--title-black: #242424;
 	--text: #666;
-	--price: #244a5d;
-	--discount-price: #39a24b;
+	--price: #244A5D;
+	--discount-price: #39A24B;
 	--font-family: "Noto Sans", sans-serif;
 }

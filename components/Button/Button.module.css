@@ -2,6 +2,7 @@
 	display: inline-block;
 
 	box-sizing: border-box;
+
 	/* padding: 10px; */
 
 	cursor: pointer;
@@ -29,7 +30,7 @@
 }
 
 .orange:hover {
-  border: 1px solid var(--orange-light);
+	border: 1px solid var(--orange-light);
 }
 
 .arrow {
