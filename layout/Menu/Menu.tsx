@@ -40,15 +40,19 @@ export const Menu = () => {
 
   const buildSecondLvl = (id) => {
     const secondMenu = menu.find((secondLevel) => secondLevel._id === id);
-    if (secondMenu) {
+    if (secondMenu && router.asPath.split('/')[2] === '' + id) {
       secondMenu.isOpened = true; // не забудь
+      
+    }
+    console.log(router.asPath.split('/')[2]);
+    
       return (
         <div>
-          {secondMenu.isOpened && secondMenu.pagesLvl.map((secondMenuItem) => (
+          {secondMenu?.pagesLvl.map((secondMenuItem) => (
           <div key={secondMenuItem.pageId}>
             <Link href={'/page-products/' + secondMenuItem.pageId}>
                 <div className={cn(styles.secondLevel, {
-                  [styles.secondLevelBlockOpened]: secondMenu.isOpened
+                  [styles.visuallyHidden]: !secondMenu.isOpened
                 })}>
                   <span>{secondMenuItem.title}</span>
                 </div>
@@ -57,7 +61,6 @@ export const Menu = () => {
           </div>))}
         </div>
       );
-    }
   };
 
   const buildThirdLvl = (id) => {
