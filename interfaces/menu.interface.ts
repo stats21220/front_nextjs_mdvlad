@@ -3,10 +3,18 @@ export interface IChildMenuItem {
 			pageId: number,
 			parentId: number,
 			title: string,
-			sortId: number
+			sortId: number,
 }
 
 export interface IMenuItem {
   _id: number;
-  pagesLvl: IChildMenuItem
+	isOpened?: boolean;
+  pagesLvl: IChildMenuItem[]
+}
+
+export interface IFirstLevelMenuItem {
+	route: string,
+	name: string,
+	icon?: JSX.Element,
+	id: number
 }

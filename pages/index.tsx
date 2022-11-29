@@ -11,7 +11,7 @@ import { withLayout } from "../layout/Layout";
 import axios from "axios";
 import { IMenuItem } from "../interfaces/menu.interface";
 
-function Home({ catalog }: IHomeProps) {
+function Home({ menu }: IHomeProps) {
   const [rating, setRating] = useState<number>(4);
 
   return (
@@ -38,17 +38,17 @@ function Home({ catalog }: IHomeProps) {
 export default withLayout(Home);
 
 export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
-  const {data: catalog} = await axios.get<IMenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/page');
+  const {data: menu} = await axios.get<IMenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/page/getMenu');
   const firstCategory = 0;
   return {
     props: {
-      catalog,
+      menu,
       firstCategory
     }
   };
 };
 
 interface IHomeProps extends Record<string, unknown> {
-  catalog: IMenuItem[];
+  menu: IMenuItem[];
   firstCategory: number;
 }

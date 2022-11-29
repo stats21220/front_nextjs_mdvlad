@@ -1,25 +1,93 @@
-import { IMenuProps } from "./Menu.props";
 import styles from './Menu.module.css';
 import cn from 'classnames';
+import { useContext } from 'react';
+import { AppContext } from '../../context/app.context';
+import IArrow from './icons/arrow.svg';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 
+export const Menu = () => {
+  
+  const { menu, setMenu, firstCategory } = useContext(AppContext);
+  const router = useRouter();
 
-export const MenuItem = ({menu, className, ...props}: IMenuProps) => {
+
+  const buildFirstLvl = () => { // подумать над роутами
+
+    const firstMenu = menu?.find((i) => i._id === firstCategory);
+
+    if (firstMenu) {
+      return (
+        <>
+          {firstMenu.pagesLvl.map((firstMenuItem) => (
+           <div key={firstMenuItem.pageId}>
+            <Link href={'/page-products/' + firstMenuItem.pageId}>
+                <div className={cn(styles.firstLevel, {
+                  [styles.firstLevelActive]: firstMenu._id === firstCategory
+                })}>
+                  <span>{firstMenuItem.title}</span>
+                  <IArrow/>
+                </div>
+            </Link>
+            {buildSecondLvl(firstMenuItem.pageId)}
+           </div>
+          ))}
+        </>
+      );
+    }
+  };
+
+  const buildSecondLvl = (id) => {
+    const secondMenu = menu.find((secondLevel) => secondLevel._id === id);
+    if (secondMenu) {
+      secondMenu.isOpened = true; // не забудь
+      return (
+        <div>
+          {secondMenu.isOpened && secondMenu.pagesLvl.map((secondMenuItem) => (
+          <div key={secondMenuItem.pageId}>
+            <Link href={'/page-products/' + secondMenuItem.pageId}>
+                <div className={cn(styles.secondLevel, {
+                  [styles.secondLevelBlockOpened]: secondMenu.isOpened
+                })}>
+                  <span>{secondMenuItem.title}</span>
+                </div>
+                {buildThirdLvl(secondMenuItem.pageId)}
+            </Link>
+          </div>))}
+        </div>
+      );
+    }
+  };
+
+  const buildThirdLvl = (id) => {
+    const thirdMenu = menu.find((thirdLevel) => thirdLevel._id === id);
+
+    if (thirdMenu) {
+
+      thirdMenu.isOpened = true; // не забудь
+
+      return (
+        <div>
+          {thirdMenu.isOpened && thirdMenu.pagesLvl.map((thirdMenuItem) => (
+            <div key={thirdMenuItem.pageId}>
+              <Link legacyBehavior href={'/page-products/' + thirdMenuItem.pageId}>
+                    <div className={cn(styles.thirdLevel, {
+                      [styles.thirdLevelBlockOpened]: thirdMenu.isOpened
+                  })}>
+                    <span>{thirdMenuItem.title}</span>
+                    </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      );
+    }
+  };
 
   return (
-        <div className={cn(styles.menu)}>{menu?.map((first) => first._id === 0 ? 
-          <ul key={first.pagesLvl.pageId} className={cn(styles.List)}>
-            <li key={first.pagesLvl.title} className={cn(styles.firstListItem)}>
-              <span>{first.pagesLvl.title}</span>
-            </li>
-            <ul className={cn(styles.secondList)}>{menu?.map((second) => first.pagesLvl.pageId === second._id ? 
-            <li key={second.pagesLvl.title} className={cn(styles.secondListItem)}>
-              <span>{second.pagesLvl.title}</span>
-            </li> :
-            <></>)}
-            </ul>
-          </ul> : 
-          <></>
-      )}</div>
+    <div className={styles.menu}>
+      {buildFirstLvl()}
+    </div>
   );
 };

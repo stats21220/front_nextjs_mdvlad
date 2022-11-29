@@ -6,12 +6,12 @@ import { IMenuItem } from "../../interfaces/menu.interface";
 import { IPageProductsModel } from "../../interfaces/page-products.interface";
 import { IProductsModel } from "../../interfaces/products.interface";
 import {ParsedUrlQuery} from 'node:querystring';
-import { MenuItem } from "../../layout/Menu/Menu";
+import { Menu } from "../../layout/Menu/Menu";
 
 function PageProducts({ menu, pageProducts, products }: IPageProductsProps) {
 
   return <>
-      <MenuItem menu={menu}/>
+      <Menu/>
     </>;
 }
 
@@ -20,7 +20,7 @@ export default withLayout(PageProducts);
 export const getStaticPaths: GetStaticPaths = async () => {
 
   const {data: menu} = await axios.get<IMenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/page/getMenu');
-  const page = menu.flatMap((item) => ('/page-products/' + item.pagesLvl.pageId));
+  const page = menu.flatMap((item) => ( item.pagesLvl.map((i) => '/page-products/' + i.pageId) ));
   
   return {
     paths: page,
