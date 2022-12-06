@@ -26,7 +26,7 @@
     "images.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "layout/Footer/icon_customImage.js"  ],
   "exclude": [
     "node_modules"
   ]

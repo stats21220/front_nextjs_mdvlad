@@ -13,4 +13,4 @@ export const Tag = ({size='m', color='cream',href, children, className, ...props
         : <>{children}</>
     }
   </div>;
-}
+};

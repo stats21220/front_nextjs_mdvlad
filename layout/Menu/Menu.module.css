@@ -53,6 +53,14 @@
   clip: rect(0 0 0 0);
 }
 
+.levelActive {
+  color: var(--primary);
+}
+
 .secondLevelBlockOpened {
 
+}
+
+.arrowWhite {
+  fill: var(--black)
 }
