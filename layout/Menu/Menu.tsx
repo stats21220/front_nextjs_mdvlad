@@ -1,11 +1,11 @@
 import styles from './Menu.module.css';
 import cn from 'classnames';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { AppContext } from '../../context/app.context';
-import IArrow from './icons/arrow.svg';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
+import { firstLevelMenu } from '../../helpers/helpers';
+import IArrow from './icons/arrow.svg';
 
 
 export const Menu = () => {
@@ -14,161 +14,103 @@ export const Menu = () => {
   const router = useRouter();
 
   
-  const open = (isOpen: number) => {
-    const newMenu = menu.map((m) => {
-      if (m._id === isOpen) {
-        m.isOpened = !m.isOpened;
-      }
-      return m;
-    });
-    setMenu && setMenu(newMenu);
-  };
-  
-  useEffect(() => open(+router.asPath.split('/')[2]), []);
+  const openSecondLevel = (secondCategory: number) => {
+		setMenu && setMenu(menu.map(m => {
+			if (m._id == secondCategory) {
+				m.isOpened = m.isOpened === undefined ? true : !m.isOpened;
+			}
+			return m;
+		}));
+	};
 
-  const firstMenu = menu.find((i) => i._id === firstCategory);
-
-
-  const buildFirstLvl = () => {
-
-    if (firstMenu) {
-
-    return (
-      firstMenu.pagesLvl.map((first) => {
-        return (<div key={first.title}>
-          <div  className={styles.firstLevel} onClick={() => open(first.pageId)}>
-            <Link href={'/page-products/' + first.pageId}><div>{first.title}</div></Link>
-            <IArrow/>
-          </div>
-          {buildSecondLvl(first.pageId)}
-        </div>);
-      })
-    );
-    }
-    return <></>;
-  };
-
-  const buildSecondLvl = (secondId: number) => {
-
-    const secondLvl = menu.find((id) => id._id === secondId);
-
-
-    return secondLvl && secondLvl?.pagesLvl.map((second) => {
-      return (
-              <div key={second.title} className={cn(styles.secondLevel, {
-                [styles.visuallyHidden]: !secondLvl.isOpened
-              })}>
-                <Link  href={'/page-products/' + second.pageId}>
-                  <div>{second.title}</div>
-                </Link>
-              </div>
-            );
-    });
-    // const router = useRouter();
-
-    // if ((router.asPath.split('/')[2] === secondId + '')) {
-    //   return secondLvl?.pagesLvl.map((second) => {
-    //     return (
-    //       <div key={second.pageId} className={cn(styles.secondLevel)}>
-    //         <Link href={'/page-products/' + second.pageId}>
-    //           <div>{second.title}</div>
-    //         </Link>
-    //       </div>
-    //     );
-    //   });
-    // }
-    // return (<></>);
-
-  };
-  return (
-    <div className={styles.menu}>
-      {buildFirstLvl()}
-    </div>
-  );
-};
-
-
-//   const { menu, setMenu, firstCategory } = useContext(AppContext);
-//   const router = useRouter();
-//   console.log('menu');
-  
-//   const openLevel = (id: number) => {
-//     console.log('openLvl');
-    
-//     setMenu && setMenu(menu.map((menuId) => {
+  // useEffect(() => setMenu && setMenu(menu.map((item) => {
+  //   // if (router.asPath.split('/')[2] == `${item.pagesLvl[0].parentId}`) {
       
-//       if (menuId.isOpened === undefined) {
-//         menuId.isOpened = !menuId.isOpened;
-//       }
+  //   //   item.isOpened = false;
+  //   //   return item;
+  //   // }
 
-//       if (menuId._id === id) {
-//         menuId.isOpened = !menuId.isOpened;
-//       }
-//       return menuId;
-//     }));
-//   };
+  //   item.isOpened = true;
+  //   return item;
+  // })), []);
 
-//   const buildFirstLvl = () => { // подумать над роутами
 
-//     const firstMenu = menu?.find((i) => i._id === firstCategory);
-//     console.log('first');
+	// const buildFirstLevel = () => {
+	// 	return (
+	// 		<ul className={styles.firstLevelList}>
+	// 			{firstLevelMenu && firstLevelMenu.map(m => (
+	// 				<li key={m.title} aria-expanded={m.parentId == firstCategory}>
+	// 					<div className={cn(styles.firstLevel, {
+	// 								[styles.firstLevelActive]: m.parentId == firstCategory
+	// 							})}>
+	// 						<Link href={`/page-products/${m.pageId}`}><span className={cn({
+  //               [styles.levelActiveFirst]: router.asPath.split('/')[2] === translit.translitForUrl(m.title)})
+  //             }>{m.title}</span></Link>
+                
+  //             <div onClick={() => openSecondLevel(m.pageId)}>click</div>
+  //           </div>
+  //             {m.parentId == firstCategory && buildSecondLevel(m.pageId)}
+	// 				</li>
+	// 			))}
+	// 		</ul>
+	// 	);
+	// };
+
+	// const buildSecondLevel = (secondId: number) => {
     
 
-//     if (firstMenu) {
-//       return (
-//         <>
-//           {firstMenu.pagesLvl.map((firstMenuItem) => (
-//            <div key={firstMenuItem.pageId}>
-//             <Link href={'/page-products/' + firstMenuItem.pageId}>
-//                 <div className={cn(styles.firstLevel, {
-//                 })} onClick={() => openLevel(firstMenuItem.pageId)}>
-//                   <span>{firstMenuItem.title}</span>
-//                   <div><IArrow/></div>
-//                 </div>
-//             </Link>
-//               {buildSecondLvl(firstMenuItem.pageId)}
-//            </div>
-//           ))}
-//         </>
-//       );
-//     }
-//   };
+  //   return (
+  //     <>
+  //       {
+  //         menu.map((secondMenu) => {
+  //           if (secondMenu._id === secondId) {
+  //             if ((router.asPath.split('/')[2] === `${secondId}`)) {
+  //               secondMenu.isOpened = false;
+  //             }
+              
+  //             if (!(router.asPath.split('/')[2] === `${secondId}`)) {
+  //               menu.map((s) => {
+  //                 if ([...s.pagesLvl.map(p => p.pageId)].includes(+router.asPath.split('/')[2])) {
+  //                   s.isOpened = false;
+  //                 }
+  //               });
+  //             }
+  //             return (
+  //               <ul key={secondMenu._id + ''} className={cn(styles.secondBlock, {
+  //                     [styles.visuallyHidden]: secondMenu.isOpened,
+  //                     [styles.thirdLevelActive]: `/page-products/${secondMenu?._id}` == router.asPath,
+  //                     })}>
+  //                 {
+  //                   secondMenu.pagesLvl.map((secondItem) => {
+  //                     return (<div key={secondItem.title}>
+  //                       <Link href={'/page-products/' + secondItem.pageId}>
+  //                         <li  className={cn({
+  //                             [styles.visuallyHidden]: secondMenu.isOpened,
+  //                             [styles.levelActive]: router.asPath.split('/')[2] === `${secondItem.pageId}`,
+  //                             // [styles.visuallyHidden]: !firstLevelMenu?.pagesLvl.map((firstId) => {
+  //                             //   firstId.pageId === secondId; // ДУМАЙ
+  //                             // }),
+  //                         })}>
+  //                           {secondItem.title}
+  //                         </li>
+  //                       </Link>
+  //                       {/* <div>{buildThirdLevel(secondItem.pageId)}</div> */}
+  //                       </div>
+  //                     );
+  //                   })
+  //                 }
+  //               </ul>
+  //             );
+  //           }
+  //         })
+  //       }
+  //     </>
+  //   );
+	// };
 
-//   const buildSecondLvl = (id) => {
-//     const secondMenu = menu.find((secondLevel) => secondLevel._id === id);
-
-//     console.log('second');
-    
-//       if ( secondMenu && router.asPath.split('/')[2] === '' + secondMenu?._id && !(secondMenu?.isOpened)) {
-//         secondMenu.isOpened = false;
-//       }
-    
-//       return (
-//         <div>
-//           {secondMenu?.pagesLvl.map((secondMenuItem) => {
-
-//             return (
-//               <div key={secondMenuItem.pageId}>
-//                 <Link href={'/page-products/' + secondMenuItem.pageId}>
-//                     <div className={cn(styles.secondLevel, {
-//                       [styles.visuallyHidden]: 
-//                         secondMenu.isOpened === true ||
-//                         secondMenu.isOpened === undefined &&
-//                         (router.asPath.split('/')[2] !== '' + secondMenuItem.parentId),
-//                       [styles.levelActive]: router.asPath.split('/')[2] === '' + secondMenuItem.pageId
-//                     })} onClick={() => openLevel(secondMenuItem.pageId)}>
-//                       <span>{secondMenuItem.title}</span>
-//                     </div>
-//                 </Link>
-//               </div>);
-//           })}
-//         </div>
-//       );
-//   };
-
-//   return (
-//     <div className={styles.menu}>
-//       {buildFirstLvl()}
-//     </div>
-//   );
-// };
+  return (
+		<div className={styles.menu} role='navigation'>
+			{/* {buildFirstLevel()} */}
+		</div>
+	);
+};

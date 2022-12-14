@@ -24,3 +24,9 @@
 .white {
 	color: var(--white);
 }
+
+.primary {
+	color: var(--primary);
+	font-weight: 700;
+	text-align: left;
+}

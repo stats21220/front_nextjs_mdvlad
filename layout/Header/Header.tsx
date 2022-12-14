@@ -1,11 +1,16 @@
 import { IHeaderProps } from "./Header.props";
 import styles from './Header.module.css';
 import ILogo from './logo.svg';
-import Link from "next/link";
+import Link from 'next/link';
+import { Ptag } from '../../components';
+import IPhone from './phone.svg';
+import IUser from './user.svg';
+import IEnter from './enter.svg';
+import ISale from './sale.svg';
 
-export const Header = ({...props}: IHeaderProps) => {
+export const Header = ({className, ...props}: IHeaderProps) => {
   return (
-    <header {...props}>
+    <header className={className} {...props}>
       <nav className={styles.nav}>
         <div className={styles.wrapper}>
             <div><Link href="/company"><span>О компании</span></Link></div>
@@ -16,15 +21,15 @@ export const Header = ({...props}: IHeaderProps) => {
           <div><span>Акции</span></div>
         </div>
         <div className={styles.wrapper_user}>
-          <div><span>Регистрация</span></div>
-          <div><span>Вход</span></div>
+          <div><IUser/><span>Регистрация</span></div>
+          <div><IEnter/><span>Вход</span></div>
         </div>
       </nav>
       <div>
         <div className={styles.wrapper_block_2}>
-          <div className={styles.logo}><ILogo/></div>
+          <div className={styles.logo}><Link href={'/'}><ILogo/></Link><Ptag size="s" color="primary">ПРОДАЖА ПИЛОМАТЕРИАЛОВ И СТРОЙТОВАРОВ</Ptag></div>
           <div className={styles.search}><input type="text" /></div>
-          <div className={styles.phone}>8 (4922) 22-21-02</div>
+          <div className={styles.phone}><IPhone/><a href="tel:8 (4922) 22-21-02"><span>8 (4922) 22-21-02</span></a></div>
           <div className={styles.cart}>корзина</div>
         </div>
       </div>
@@ -35,7 +40,7 @@ export const Header = ({...props}: IHeaderProps) => {
           <div className={styles.menu_3}><span>Услуги</span></div>
           <div className={styles.menu_4}><span>Оплата и доставка</span></div>
           <div className={styles.menu_5}><span>Новости и акции</span></div>
-          <div className={styles.menu_6}><span>Распрадажа</span></div>
+          <div className={styles.menu_6}><ISale/><span>Распрадажа</span></div>
         </div>
       </div>
     </header>

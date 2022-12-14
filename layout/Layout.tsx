@@ -5,18 +5,19 @@ import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
 import { ILayoutProps } from "./Layout.props";
 import { Subscribe } from "./Subscribe/Subscribe";
+import styles from './Layout.module.css';
 
 
 const Layout = ({children}: ILayoutProps) => {
   return (
     <>
-      <Header/>
-        <div>
+      <Header className={styles.header}/>
+        <div className={styles.body}>
             {children}
         </div>      
-      <Feedback/>
-      <Subscribe/>
-      <Footer/>
+      <Feedback className={styles.feedback}/>
+      <Subscribe className={styles.subscribe}/>
+      <Footer className={styles.footer}/>
     </>
   );
 };

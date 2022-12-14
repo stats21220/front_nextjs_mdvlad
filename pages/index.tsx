@@ -11,7 +11,7 @@ import { withLayout } from "../layout/Layout";
 import axios from "axios";
 import { IMenuItem } from "../interfaces/menu.interface";
 
-function Home({ menu }: IHomeProps) {
+function Home() {
   const [rating, setRating] = useState<number>(4);
 
   return (

@@ -1,15 +1,10 @@
 
-export interface IChildMenuItem {
-			pageId: number,
-			parentId: number,
-			title: string,
-			sortId: number,
-}
-
-export interface IMenuItem {
-  _id: number;
-	isOpened?: boolean;
-  pagesLvl: IChildMenuItem[]
+export interface IMenuItem {	
+	pageId: number,
+	parentId: number[],
+	sortId: 1,
+	title: "Пиломатериалы",
+	route: "pilomateriali"
 }
 
 export interface IFirstLevelMenuItem {

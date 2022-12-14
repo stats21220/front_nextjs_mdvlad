@@ -16,9 +16,17 @@
   border-bottom: 1px solid var(--white);
 }
 
-.firstLevelActive {
-
+.firstLevelList {
+  list-style: none;
+  padding-left: 0;
 }
+
+.secondBlock {
+  display: none;
+  list-style: none;
+  padding-left: 0;
+}
+
 
 .secondLevel {
   padding: 10px;
@@ -55,12 +63,9 @@
 
 .levelActive {
   color: var(--primary);
+  font-weight: 700;
 }
 
-.secondLevelBlockOpened {
-
-}
-
-.arrowWhite {
-  fill: var(--black)
+.levelActiveFirst {
+  font-weight: 900;
 }
