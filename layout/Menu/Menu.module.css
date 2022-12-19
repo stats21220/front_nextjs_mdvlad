@@ -1,42 +1,90 @@
 .menu {
+  /* margin-top: 20px; */
   padding-left: 20px;
   width: 320px;
+  padding: 0;
+  /* background: var(--primary); */
+  /* border: 1px solid var(--primary); */
 }
 
 .firstLevel {
   display: grid;
-  grid-template-columns: 1fr 14px 20px;
+  grid-template-columns: 1fr auto;
   align-items: center;
   font-size: 14px;
   line-height: 16px;
   font-weight: 500;
   color: var(--white);
-  background-color: var(--primary);
-  padding: 10px;
-  border-bottom: 1px solid var(--white);
+  background: var(--primary);
+  min-height: 36px;
+  /* padding: 10px; */
+  /* border-top: 1px solid var(--primary); */
+  /* border-bottom: 1px solid var(--primary); */
+  /* border-left: 1px solid var(--primary); */
+  /* border-right: 1px solid var(--primary); */
+}
+
+.firstLink {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  min-height: 36px;
+  width: 100%;
 }
 
 .firstLevelList {
   list-style: none;
   padding-left: 0;
+  margin: 0;
+  border-top: 1px solid var(--white);
+  padding: 0;
+  /* border-radius: 0 0 10px 10px; */
 }
 
-.secondBlock {
-  display: none;
+.firstLevelList:first-child {
+  border-top: none;
+}
+
+/* .arrowClose {
+
+} */
+
+.arrowActive {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid var(--white);
+  width: 36px;
+  height: 36px;
+}
+
+.secondLevelList {
+  /* display: none; */
+  background: var(--white);
+  border-top: 1px solid var(--primary);
   list-style: none;
   padding-left: 0;
+  border-left: 1px solid var(--primary);
+  border-right: 1px solid var(--primary);
 }
 
 
 .secondLevel {
-  padding: 10px;
+  /* padding: 10px; */
+  display: grid;
+  align-items: center;
   color: var(--black);
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
-  border-bottom: 1px solid var(--primary);
-  border-left: 1px solid var(--primary);
-  border-right: 1px solid var(--primary);
+  min-height: 36px;
+  padding-left: 15px;
+  /* border-top: 1px solid var(--primary); */
+  /* border-left: 1px solid var(--primary); */
+  /* border-right: 1px solid var(--primary); */
+  /* outline: 1px solid var(--primary); */
+  /* border-radius: none; */
 }
 
 .thirdLevel {
@@ -64,6 +112,15 @@
 .levelActive {
   color: var(--primary);
   font-weight: 700;
+}
+
+.levelActiveHover:hover {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.levelActiveFirstHover:hover {
+  font-weight: 900;
 }
 
 .levelActiveFirst {

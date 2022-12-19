@@ -1,4 +1,12 @@
 
 .wrapper {
-  display: flex;
+  width: 1280px;
+  display: grid;
+  padding: 0;
+  margin: auto;
+  margin-top: 20px;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  /* align-items: center; */
+  justify-content: center;
 }

@@ -1,10 +1,8 @@
-import { IMenuItem } from "../../interfaces/menu.interface";
-import { IPageProductsModel } from "../../interfaces/page-products.interface";
-import { IProductsModel } from "../../interfaces/products.interface";
+import { IMenuItem, IPageProductsModel, IProductsModel } from "../../interfaces";
+
 
 export interface IPageProductsComponentProps {
-  menu: IMenuItem[];
-  firstCategory: number;
+  menu: IMenuItem;
   pageProducts: IPageProductsModel;
   products: IProductsModel[];
 }
