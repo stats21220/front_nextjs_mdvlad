@@ -1,14 +1,12 @@
 .menu {
-  /* margin-top: 20px; */
   padding-left: 20px;
   width: 320px;
   padding: 0;
-  /* background: var(--primary); */
-  /* border: 1px solid var(--primary); */
 }
 
 .firstLevel {
   display: grid;
+  position: relative;
   grid-template-columns: 1fr auto;
   align-items: center;
   font-size: 14px;
@@ -17,11 +15,6 @@
   color: var(--white);
   background: var(--primary);
   min-height: 36px;
-  /* padding: 10px; */
-  /* border-top: 1px solid var(--primary); */
-  /* border-bottom: 1px solid var(--primary); */
-  /* border-left: 1px solid var(--primary); */
-  /* border-right: 1px solid var(--primary); */
 }
 
 .firstLink {
@@ -33,21 +26,17 @@
 }
 
 .firstLevelList {
+  display: block;
   list-style: none;
   padding-left: 0;
   margin: 0;
   border-top: 1px solid var(--white);
   padding: 0;
-  /* border-radius: 0 0 10px 10px; */
 }
 
 .firstLevelList:first-child {
   border-top: none;
 }
-
-/* .arrowClose {
-
-} */
 
 .arrowActive {
   cursor: pointer;
@@ -60,7 +49,6 @@
 }
 
 .secondLevelList {
-  /* display: none; */
   background: var(--white);
   border-top: 1px solid var(--primary);
   list-style: none;
@@ -125,4 +113,8 @@
 
 .levelActiveFirst {
   font-weight: 900;
+}
+
+.liItem {
+  position: relative;
 }

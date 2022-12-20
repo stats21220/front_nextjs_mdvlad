@@ -4,9 +4,8 @@ import { useContext } from "react";
 import { AppContext } from "../../context/app.context";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { IFirstItem } from "../../interfaces";
 
-export const BreadCrumbs = ({} : IBreadCrumbs) => {
+export const BreadCrumbs = ({className} : IBreadCrumbs) => {
     const {menu, setMenu} = useContext(AppContext);
 
     const router =  useRouter();
@@ -29,8 +28,8 @@ export const BreadCrumbs = ({} : IBreadCrumbs) => {
     }
 
     return (
-        <div>
-            <Link className={styles.link} href="/">Главная</Link>{newBreeadCrumbs.map((b) => <Link className={styles.link} href={b.route}>{b.title}</Link>)}
+        <div className={className}>
+            <Link className={styles.link} href="/">/Главная</Link>{newBreeadCrumbs.map((b) => <Link key={b.route} className={styles.link} href={b.route}>/{b.title}</Link>)}
         </div>
     )
 }

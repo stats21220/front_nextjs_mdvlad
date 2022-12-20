@@ -1,12 +1,13 @@
 import { IProducts } from "./Products.props";
 import styles from './Products.module.css'
-import { Htag } from "../../components";
+import cn from 'classnames';
 
 
-export const Products = ({products} :  IProducts) => {
+export const Products = ({products, className} :  IProducts) => {
 
   return (
-    <section className={styles.wrapper}>
+    <section className={cn(styles.wrapper, className)}>
+    {products.length == 0 ? <span>Продукты не найдены</span> : <></>}
     {products && products.map((p) => (
       <article key={p._id} className={styles.itemProduct}>
         <div className={styles.imageProduct}>{p.image}</div>

@@ -3,19 +3,19 @@ import { IPageProductsComponentProps } from "./Page-productsComponent.props";
 import styles from './Page-productsComponent.module.css';
 import { Products } from "../../layout/Products/Products";
 import { Htag, Ptag } from "../../components";
-import Link from "next/link";
 import { BreadCrumbs } from "../../layout/BreadCrumbs/BreadCrumbs";
+import { СhildСategories } from "../../layout/СhildСategories/СhildСategories";
 
 export const PageProductsComponent = ({products, pageProducts}: IPageProductsComponentProps) => {
 
   return (
     <div className={styles.wrapper}>
-      <BreadCrumbs/>
-      <Htag tag="h3" color="black">{pageProducts && pageProducts.title}</Htag>
-      <Menu/>
-      {products && <Products products={products} />}
-      <div></div>
-      <Ptag size="s" color="black">{pageProducts?.description}</Ptag>
+      <BreadCrumbs className={styles.BreadCrumbs}/>
+      <Htag className={styles.title} tag="h3" color="black">{pageProducts && pageProducts.title}</Htag>
+      <СhildСategories className={styles.СhildСategories}/>
+      <Menu className={styles.menu}/>
+      {products && <Products className={styles.products} products={products} />}
+      <Ptag className={styles.description} size="s" color="black">{pageProducts?.description}</Ptag>
     </div>
   );
 };
