@@ -1,17 +1,16 @@
 
 .wrapper {
-  width: 1280px;
+  /* width: 1280px; */
   display: grid;
   padding: 0;
   margin: auto;
   margin-top: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 320px auto;
   grid-template-areas: 
   "BreadCrumbs BreadCrumbs"
-    "menu title"
-    "menu СhildСategories"
-    "menu products"
-    "menu description"
+  "menu titleAndCategories"
+  "menu products"
+  "menu description"
     ;
   gap: 20px;
   /* align-items: flex-start; */
@@ -25,6 +24,10 @@
 
 .menu {
   grid-area: menu;
+}
+
+.titleAndCategories{
+  grid-area: titleAndCategories;
 }
 
 .title {

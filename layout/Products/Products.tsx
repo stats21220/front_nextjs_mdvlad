@@ -9,7 +9,7 @@ export const Products = ({products, className} :  IProducts) => {
     <section className={cn(styles.wrapper, className)}>
     {products.length == 0 ? <span>Продукты не найдены</span> : <></>}
     {products && products.map((p) => (
-      <article key={p._id} className={styles.itemProduct}>
+      <div key={p._id} className={styles.itemProduct}>
         <div className={styles.imageProduct}>{p.image}</div>
         <div className={styles.infoProduct}>
           <span>Код: {p.productId}</span>
@@ -29,7 +29,7 @@ export const Products = ({products, className} :  IProducts) => {
           </div>
         </div>
         <div></div>
-      </article>
+      </div>
     ))}
   </section>
   );

@@ -14,7 +14,7 @@ import IYoutube from './youtube.svg';
 export const Footer = ({className,...props}: IFooterProps) => {
   return (
     <footer className={cn(styles.footer, className)} {...props}>
-        <div className={cn(styles.wrapper, styles.list_1)}>
+        <div className={cn(styles.list_1)}>
           <Htag className={styles.title} tag="h4" color="black" >О КОМПАНИИ</Htag>
           <ul className={styles.list}>
             <li className={styles.listItem}><a href="#">О магазине</a></li>
@@ -26,7 +26,7 @@ export const Footer = ({className,...props}: IFooterProps) => {
             <li className={styles.listItem}><a href="#">Программа лояльности</a></li>
           </ul>
         </div>
-        <div className={cn(styles.wrapper, styles.list_2)}>
+        <div className={cn(styles.list_2)}>
           <Htag className={styles.title} tag="h4" color="black" >КАТАЛОГ</Htag>
           <ul className={styles.list}>
             <li className={styles.listItem}><a href="#">Пиломатериалы</a></li>
@@ -39,7 +39,7 @@ export const Footer = ({className,...props}: IFooterProps) => {
             <li className={styles.listItem}><a className={styles.sale} href="#">РАСПРОДАЖА</a></li>
           </ul>
         </div>
-        <div className={cn(styles.wrapper, styles.list_3)}>
+        <div className={cn(styles.list_3)}>
           <Htag className={styles.title} tag="h4" color="black" >КОНТАКТЫ</Htag>
           <ul className={styles.list}>
             <li className={styles.listItem}>

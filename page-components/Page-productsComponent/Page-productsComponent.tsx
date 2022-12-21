@@ -11,8 +11,10 @@ export const PageProductsComponent = ({products, pageProducts}: IPageProductsCom
   return (
     <div className={styles.wrapper}>
       <BreadCrumbs className={styles.BreadCrumbs}/>
-      <Htag className={styles.title} tag="h3" color="black">{pageProducts && pageProducts.title}</Htag>
-      <СhildСategories className={styles.СhildСategories}/>
+      <div className={styles.titleAndCategories}>
+        <Htag className={styles.title} tag="h3" color="black">{pageProducts && pageProducts.title}</Htag>
+        <СhildСategories className={styles.СhildСategories}/>
+      </div>
       <Menu className={styles.menu}/>
       {products && <Products className={styles.products} products={products} />}
       <Ptag className={styles.description} size="s" color="black">{pageProducts?.description}</Ptag>

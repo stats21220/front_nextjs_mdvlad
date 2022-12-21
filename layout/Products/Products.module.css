@@ -1,15 +1,11 @@
 
 .wrapper {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
+    width: 100%;
     display: grid;
-    grid-template-columns: 290px 290px 290px;
-    gap: 40px;
-    /* margin-left: 20px; */
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: start;
     align-items: flex-start;
-    gap: 30px;
-    margin-left: 10px;
+    gap: 20px;
 }
 
 .itemProduct {

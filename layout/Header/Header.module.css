@@ -1,7 +1,7 @@
 
 .header {
   display: grid;
-  grid-template-columns: auto minmax(320px, 1280px) auto;
+  grid-template-columns: auto 1280px auto;
 	gap: 0;
 	grid-template-areas:
 		"nav nav nav"

@@ -30,7 +30,7 @@
   list-style: none;
   padding-left: 0;
   margin: 0;
-  border-top: 1px solid var(--white);
+  /* border-top: 1px solid var(--white); */
   padding: 0;
 }
 
@@ -50,11 +50,11 @@
 
 .secondLevelList {
   background: var(--white);
-  border-top: 1px solid var(--primary);
+  /* border-top: 1px solid var(--primary); */
   list-style: none;
   padding-left: 0;
-  border-left: 1px solid var(--primary);
-  border-right: 1px solid var(--primary);
+  /* border-left: 1px solid var(--primary); */
+  /* border-right: 1px solid var(--primary); */
 }
 
 
@@ -75,7 +75,7 @@
   /* border-radius: none; */
 }
 
-.thirdLevel {
+/* .thirdLevel {
   padding: 10px;
   color: var(--black);
   font-weight: 500;
@@ -84,7 +84,7 @@
   border-bottom: 1px solid var(--primary);
   border-left: 1px solid var(--primary);
   border-right: 1px solid var(--primary);
-}
+} */
 
 .visuallyHidden {
   position: absolute;
@@ -98,11 +98,13 @@
 }
 
 .levelActive {
+  background: var(--orange-light);
   color: var(--primary);
   font-weight: 700;
 }
 
 .levelActiveHover:hover {
+  background: var(--orange-light);
   color: var(--primary);
   font-weight: 700;
 }
@@ -117,4 +119,9 @@
 
 .liItem {
   position: relative;
+}
+
+.link {
+  height: auto;
+  width: auto;
 }
