@@ -15,12 +15,20 @@ export const Header = ({className, ...props}: IHeaderProps) => {
       <nav className={styles.nav}>
         <div className={styles.wrapper_nav}>
           <div className={styles.wrapper_nav_item}>
-            <div><Link href="/company"><span>О компании</span></Link></div>
-            <div><span>Покупателям</span></div>
-            <div><span>Поставщикам</span></div>
-            <div><span>Оплата и доставка</span></div>
-            <div><span>Контакты</span></div>
-            <div><span>Акции</span></div>
+            <div className={styles.nav_item}><Link href="/company"><span>О компании</span></Link></div>
+            <div className={styles.dropdown}>
+              <button className={styles.dropbtn}> <span>Покупателям</span>
+                <i className={styles.fa_fa_caret_down}></i>
+              </button>
+              <div className={styles.dropdown_content}>
+                <Link href={'/lawyer'}><span>Работа с юр.лицами</span></Link>
+                <Link href={'/privacy'}><span>Политика конфиденциальности</span></Link>
+              </div>
+            </div> 
+            <div className={styles.nav_item}><Link href={"/payment_and_delivery"}><span>Оплата и доставка</span></Link></div>
+            <div className={styles.nav_item}><Link href={"/provider"}><span>Поставщикам</span></Link></div>
+            <div className={styles.nav_item}><Link href={"/contacts"}><span>Контакты</span></Link></div>
+            <div className={styles.nav_item}><Link href={"/"}><span>Акции</span></Link></div>
           </div>
           <div className={styles.wrapper_user}>
             <div className={styles.wrapper_user_item}><IUser/><span>Регистрация</span></div>
@@ -32,7 +40,7 @@ export const Header = ({className, ...props}: IHeaderProps) => {
         <div className={styles.wrapper_block_item}>
           <div className={styles.logo}><Link href={'/'}><ILogo/></Link><Ptag size="s" color="primary">ПРОДАЖА ПИЛОМАТЕРИАЛОВ И СТРОЙТОВАРОВ</Ptag></div>
           <div className={styles.search}><input type="text" /></div>
-          <div className={styles.phone}><IPhone/><a href="tel:8 (4922) 22-21-02"><span>8 (4922) 22-21-02</span></a></div>
+          <div className={styles.phone}><IPhone/><Link href="tel:8 (4922) 22-21-02"><span>8 (4922) 22-21-02</span></Link></div>
           <div className={styles.cart}>корзина</div>
         </div>
       </div>

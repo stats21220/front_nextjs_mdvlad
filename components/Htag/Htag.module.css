@@ -14,7 +14,8 @@
 }
 
 .h3 {
-	margin: 0;
+	margin: 0; 
+	margin-top: 20px;
 
 	font-size: 30px;
 	line-height: 30px;
@@ -49,4 +50,13 @@
 
 .white {
 	color: var(--white);
+}
+
+.size16 {
+	font-size: 16px;
+}
+
+.size14 {
+	font-size: 16px;
+	margin-bottom: 15px;
 }

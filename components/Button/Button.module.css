@@ -26,11 +26,12 @@
 
 .orange {
 	color: var(--black);
-	background: var(--orange);
+	background: var(--orange-light);
+	font-weight: 700;
 }
 
 .orange:hover {
-	border: 1px solid var(--orange-light);
+	outline: 2px solid var(--orange-light);
 }
 
 .arrow {

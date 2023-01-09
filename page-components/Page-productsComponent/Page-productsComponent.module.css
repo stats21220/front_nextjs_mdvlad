@@ -10,8 +10,8 @@
   "BreadCrumbs BreadCrumbs"
   "menu titleAndCategories"
   "menu products"
-  "menu description"
-    ;
+  "menu description";
+  grid-template-rows: auto auto 1fr auto;
   gap: 20px;
   /* align-items: flex-start; */
   /* justify-content: center; */

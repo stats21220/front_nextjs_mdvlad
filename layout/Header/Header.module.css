@@ -19,6 +19,7 @@
   font-size: 15px;
   background: var(--orange-light);
   color: var(--black);
+  /* border-bottom: 2px solid var(--primary); */
 }
 
 .wrapper_nav {
@@ -32,12 +33,25 @@
 }
 
 .wrapper_nav_item {
+  height: 100%;
   display: flex;
   justify-items: end;
+  align-items: center;
   gap: 20px;
 }
 
+.nav_item {
+  height: 100%;
+}
+
+.nav_item a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .wrapper_user{
+  height: 100%;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -86,7 +100,7 @@
   justify-content: center;
   height: 93px;
   grid-area: block_1;
-  background: var(--cream);
+  /* background: var(--cream); */
 }
 
 .wrapper_block_item {
@@ -103,9 +117,11 @@
   height: 35px;
   cursor: pointer;
   grid-area: block_2;
-  font-size: 15px;
+  /* font-size: 15px; */
   background: var(--orange-light);
   color: var(--black);
+  /* border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary); */
 }
 
 .wrapper_menu {
@@ -118,10 +134,11 @@
   grid-area: wrapper_nav;
   justify-content: space-between;
   background: var(--primary);
-  border-radius: 30px;
+  /* border-radius: 30px; */
 }
 
 .wrapper_user_item {
+  height: 100%;
   display: flex;
   align-items: center;
   gap:  5px;
@@ -171,4 +188,52 @@
   background: var(--orange-light);
   color: var(--black);
   font-weight: 00;
+}
+
+
+
+.dropdown {
+  height: 100%;
+}
+
+.dropdown .dropbtn {
+  font-size: 15px;
+  border: none;
+  height: 100%;
+  outline: none;
+  color: var(--black);
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.dropdown_content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown_content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown_content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown_content {
+  display: block;
 }

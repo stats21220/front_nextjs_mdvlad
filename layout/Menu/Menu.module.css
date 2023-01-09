@@ -2,6 +2,7 @@
   padding-left: 20px;
   width: 320px;
   padding: 0;
+  height: auto;
 }
 
 .firstLevel {
@@ -15,6 +16,7 @@
   color: var(--white);
   background: var(--primary);
   min-height: 36px;
+  border-top: 1px solid var(--white);
 }
 
 .firstLink {
@@ -30,7 +32,6 @@
   list-style: none;
   padding-left: 0;
   margin: 0;
-  /* border-top: 1px solid var(--white); */
   padding: 0;
 }
 

@@ -55,17 +55,17 @@ export const Menu = ({className}: IMenu) => {
               })}>
                 {first.sec.map((second) => (
                   <ul key={second.route} className={styles.secondLevelList}>
-                    <li key={second.title} className={cn(styles.secondLevel, styles.levelActiveHover, {
+                    <Link href={'/' + 'page-products' + '/' + first.route + '/' + second.route}>
+                    <li className={cn(styles.secondLevel, styles.levelActiveHover, {
                         [styles.levelActive]: router.asPath.split('/').includes(second.route)
                     })}>
-                      <Link href={'/' + 'page-products' + '/' + first.route + '/' + second.route}>
                         <div>
                           <span className={cn(styles.link)}>
                             {second.title}
                           </span>
                         </div>
-                      </Link>
                     </li>
+                      </Link>
                   </ul>
                 ))}
               </li>

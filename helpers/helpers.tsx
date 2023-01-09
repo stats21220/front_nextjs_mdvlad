@@ -1,6 +1,2 @@
-// import { useContext } from "react";
-// import { translitForUrl } from "translit-npm";
-// import { AppContext } from "../context/app.context";
 
-
-export const pi = 3.14
+export const priceRu = (price: string): string => price.replace(/\B(?=(\d{3})+(?!\d))/g, ' ').concat(' ₽')

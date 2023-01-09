@@ -1,6 +1,6 @@
 
 .footer {
-	background: var(--orange-light);
+	background: var(--white);
 	color: black;
 	display: grid;
 	justify-content: center;
@@ -28,7 +28,8 @@
 
 .listItem:hover {
 	background: var(--primary);
-	color: var(--orange);
+	color: var(--white);
+	fill: var(--white);
 }
 
 .title {

@@ -5,4 +5,5 @@ export interface IHtagProps extends DetailedHTMLProps<HTMLAttributes<HTMLHeading
   color: 'black' | 'white' | 'primary';
   weight?: 500 | 700 | 900;
   children: ReactNode;
+  size?: 16 | 14
 }

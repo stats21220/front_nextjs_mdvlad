@@ -4,31 +4,29 @@ import { useContext } from "react";
 import { AppContext } from "../../context/app.context";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { IFirstItem } from "../../interfaces";
+import cn from 'classnames';
 
 export const BreadCrumbs = ({className} : IBreadCrumbs) => {
-    const {menu, setMenu} = useContext(AppContext);
+    const {menu} = useContext(AppContext);
 
     const pageRoute = 'page-products';
 
     const router =  useRouter();
 
     const route = router.asPath.split('/');
-    
-    // const newBreeadCrumbs: {title: string, route: string}[] = [] /// убрать вывод через массив
 
     const build = () => {
         const breadCrumbs: {title: string, route: string}[] = []
 
         if (menu) {
             for (const f of menu.pages) {
-                if (route.includes(f.route)) {
+                if (route[2] === f.route) {
                     breadCrumbs.push({title: f.title, route: `/${pageRoute}/${f.route}`})
                     for (const s of f.sec) {
-                        if (route.includes(s.route)) {
+                        if (route[3] === s.route) {
                             breadCrumbs.push({title: s.title, route: `/${pageRoute}/${f.route}/${s.route}`})
                             for (const t of s.third) {
-                                if (route.includes(t.route)) {
+                                if (route[4] === t.route) {
                                     breadCrumbs.push({title: t.title, route: `/${pageRoute}/${f.route}/${s.route}/${t.route}`})
                                 }
                             }
@@ -50,7 +48,19 @@ export const BreadCrumbs = ({className} : IBreadCrumbs) => {
             </Link>
             {
                 // newBreeadCrumbs.map((b) => <Link key={b.route} className={styles.link} href={b.route}>/{b.title}</Link>)
-                build().map((r) => <Link className={styles.link} key={r.route} href={r.route}>/ {r.title}</Link>)
+                build().map((r) => {
+                    return (
+                        <>
+                            <Link 
+                                className={cn(
+                                    styles.link
+                                )} 
+                                key={r.route} 
+                                href={r.route}>/ {r.title}
+                            </Link>
+                        </>
+                    )
+                })
             }
         </div>
     )
